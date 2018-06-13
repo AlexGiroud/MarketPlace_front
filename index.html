@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crypto Shopping Contracts</title>
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="./main.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script defer src="./main.js"></script>
+</head>
+
+<body>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Crypto Shopping Contracts
+                </h1>
+                <h2 class="subtitle">
+                    Deploy your own store in just a few clics
+                </h2>
+            </div>
+        </div>
+    </section>
+    <br/>
+    <br/>
+    <section>
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                <article class="tile is-child is-primary">
+                    <p class="title">Create your own shop</p>
+                    <button onclick="deployContract()">create</button>
+                </article>
+            </div>
+            <div class="tile is-vertical">
+                <article class="tile is-child is-primary">
+                    <p class="title">Use an existing shop</p>
+                    <label>Adress :</label>
+                    <input id="inputAdress" type="text" />
+                    <button onclick="loadcontract();">get contract</button>
+                </article>
+            </div>
+            <div class="tile is-4">
+                <article class="tile is-child is-primary">
+                    <p class="title">Interact with the shop</p>
+
+
+                    <div class="contractActionsContainerMulti_UZWeu" style="display: flex;">
+                        <div class="contractActionsContainerMultiInner_UZWeu">
+                            <div class="multiHeader_UZWeu">
+                                <h3 class="subtitle">addProduct</h3>
+
+                            </div>
+                            <div>
+                                <div class="multiArg_UZWeu">
+                                    <label for="_name">name: </label>
+                                    <input placeholder="string" id="ap1" title="_name">
+                                </div>
+                                <div class="multiArg_UZWeu">
+                                    <label for="_stock">stock: </label>
+                                    <input placeholder="uint8" id="ap2" title="_stock">
+                                </div>
+                                <div class="multiArg_UZWeu">
+                                    <label for="_amount">amount: </label>
+                                    <input placeholder="uint256" id="ap3" title="_amount">
+                                </div>
+                            </div>
+                            <div class="group_UZWeu multiArg_UZWeu">
+                                <button class="instanceButton_UZWeu" title="addProduct - transact (not payable)" onclick="addProduct()">addProduct</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contractActionsContainer_UZWeu">
+                        <div class="contractProperty_UZWeu hasArgs_UZWeu undefined">
+                            <div class="contractActionsContainerSingle_UZWeu" style="display: none;">
+                                <button class="instanceButton_UZWeu" title="buyProduct - transact (payable)">buyProduct</button>
+                                <input placeholder="string _name" title="string _name">
+                                <i title="buyProduct" class="fa fa-angle-down methCaret_UZWeu"></i>
+                            </div>
+                            <div class="contractActionsContainerMulti_UZWeu" style="display: flex;">
+                                <div class="contractActionsContainerMultiInner_UZWeu">
+                                    <div class="multiHeader_UZWeu">
+                                        <h3 class="subtitle">buyProduct</h3>
+
+                                    </div>
+                                    <div>
+                                        <div class="multiArg_UZWeu">
+                                            <label for="_name">name: </label>
+                                            <input placeholder="string" id="bp1" title="_name">
+                                        </div>
+                                    </div>
+                                    <div class="group_UZWeu multiArg_UZWeu">
+                                        <button class="instanceButton_UZWeu" title="buyProduct - transact (payable)" onclick="buyProduct()">buyProduct</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value_UZWeu"></div>
+                    </div>
+                    <div class="contractActionsContainer_UZWeu">
+                        <div class="contractProperty_UZWeu hasArgs_UZWeu">
+                            <div class="contractActionsContainerSingle_UZWeu" style="display: none;">
+                                <button class="instanceButton_UZWeu" title="getProductPrice - transact (not payable)">getProductPrice</button>
+                                <input placeholder="string _name" title="string _name">
+                                <i title="getProductPrice" class="fa fa-angle-down methCaret_UZWeu"></i>
+                            </div>
+                            <div class="contractActionsContainerMulti_UZWeu" style="display: flex;">
+                                <div class="contractActionsContainerMultiInner_UZWeu">
+                                    <div class="multiHeader_UZWeu">
+                                        <h3 class="subtitle">getProductPrice</h3>
+
+                                    </div>
+                                    <div>
+                                        <div class="multiArg_UZWeu">
+                                            <label for="_name">name: </label>
+                                            <input placeholder="string" id="gpp1" title="_name">
+                                        </div>
+                                    </div>
+                                    <div class="group_UZWeu multiArg_UZWeu">
+                                        <button class="instanceButton_UZWeu" title="getProductPrice - transact (not payable)" onclick="getProductPrice()">getProductPrice</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value_UZWeu"></div>
+                    </div>
+                    <div class="contractActionsContainer_UZWeu">
+                        <div class="contractProperty_UZWeu hasArgs_UZWeu">
+                            <div class="contractActionsContainerSingle_UZWeu" style="display: none;">
+                                <button class="instanceButton_UZWeu" title="getProductStock - transact (not payable)">getProductStock</button>
+                                <input placeholder="string _name" title="string _name">
+                                <i title="getProductStock" class="fa fa-angle-down methCaret_UZWeu"></i>
+                            </div>
+                            <div class="contractActionsContainerMulti_UZWeu" style="display: flex;">
+                                <div class="contractActionsContainerMultiInner_UZWeu">
+                                    <div class="multiHeader_UZWeu">
+                                        <h3 class="subtitle">getProductStock</h3>
+
+                                    </div>
+                                    <div>
+                                        <div class="multiArg_UZWeu">
+                                            <label for="_name">name: </label>
+                                            <input placeholder="string" id="gps1" title="_name">
+                                        </div>
+                                    </div>
+                                    <div class="group_UZWeu multiArg_UZWeu">
+                                        <button class="instanceButton_UZWeu" title="getProductStock - transact (not payable)" onclick="getProductStock()">getProductStock</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value_UZWeu"></div>
+                    </div>
+                    <div class="contractActionsContainer_UZWeu">
+                        <div class="contractProperty_UZWeu hasArgs_UZWeu">
+                            <div class="contractActionsContainerSingle_UZWeu" style="display: none;">
+                                <button class="instanceButton_UZWeu" title="removeProduct - transact (not payable)">removeProduct</button>
+                                <input placeholder="string _name" title="string _name">
+                                <i title="removeProduct" class="fa fa-angle-down methCaret_UZWeu"></i>
+                            </div>
+                            <div class="contractActionsContainerMulti_UZWeu" style="display: flex;">
+                                <div class="contractActionsContainerMultiInner_UZWeu">
+                                    <div class="multiHeader_UZWeu">
+                                        <h3 class="subtitle">removeProduct</h3>
+
+                                    </div>
+                                    <div>
+                                        <div class="multiArg_UZWeu">
+                                            <label for="_name">name: </label>
+                                            <input placeholder="string" id="rp1" title="_name">
+                                        </div>
+                                    </div>
+                                    <div class="group_UZWeu multiArg_UZWeu">
+                                        <button class="instanceButton_UZWeu" title="removeProduct - transact (not payable)" onclick="removeProduct()">removeProduct</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </section>
+<br/>
+<br/>
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    Developped by Trouillet Etienne, Foray Sebastien, Giroud-Bit Alexandre
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
